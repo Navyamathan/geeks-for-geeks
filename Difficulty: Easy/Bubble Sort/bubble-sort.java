@@ -19,20 +19,26 @@ class Solution {
     
     public static void calculation(int[] arr ,int i)
     {
-        if(i <= 0)
+        boolean found = true;
+        if(i <= 0 )
         {
             return;
         }
         
         for(int j=0; j<i; j++)
-           {
-               if(arr[j] > arr[j+1])
-               {
-                   int temp = arr[j+1];
-                   arr[j+1] = arr[j];
-                   arr[j] = temp;
-               }
-           }
+        {
+            if(arr[j] > arr[j+1])
+            {
+                int temp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+                found = false;
+            }
+        }
+        if(found)
+        {
+            return;
+        }
            
         calculation(arr,i-1);
     }
