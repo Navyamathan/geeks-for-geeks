@@ -44,8 +44,16 @@ class Solution
     // Please change the array in-place
     public void insertionSort(int arr[]) 
     {
-        for(int i=0; i<arr.length; i++)
-        {
+        int i=0;
+        calculation(arr,i);
+    }
+    
+    public void calculation(int[] arr, int i)
+    {
+       if(i == arr.length)
+       {
+           return;
+       }
             int j=i;
             while(j>0 && arr[j-1]>arr[j])
             {
@@ -54,6 +62,9 @@ class Solution
                 arr[j] = temp;
                 j--;
             }
-        }
+        calculation(arr,i+1);
+       
     }
+    
+    
 }
